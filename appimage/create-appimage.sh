@@ -10,5 +10,5 @@ chmod u+x ./*.AppImage
 cp ../build/release/bmorecoin .
 mkdir -p usr/share/icons
 mkdir -p usr/lib
-cp ../src/images/bmorecoin.png usr/share/icons
+cp ../src/images/cryptonote.png usr/share/icons/bmorecoin.png
 ./linuxdeploy-x86_64.AppImage --executable ./bmorecoin --desktop-file bmorecoin-desktop.desktop --appdir . --output appimage --plugin qt
