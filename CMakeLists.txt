@@ -4,11 +4,11 @@ include(CryptoNoteWallet.cmake)
 
 project(${CN_PROJECT_NAME})
 
-target_compile_features (${PROJECT_NAME}
-  INTERFACE
-    # Enable C++17 standard compliance
-    cxx_std_17
-)
+if(MSVC)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++latest")
+else(MSVC)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+endif(MSVC)
 
 execute_process(COMMAND git log -1 --pretty=format:%h
 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
